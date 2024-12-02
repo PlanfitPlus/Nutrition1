@@ -1,0 +1,629 @@
+/* الخطوط والتنسيقات الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e67e22;
+    --accent-color: #f1c40f;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --dark-bg: #2c3e50;
+}
+
+body {
+    background: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* الهيدر */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* الشهادات */
+.certifications {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.certifications h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.cert-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.cert-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.cert-item:hover::after {
+    left: 100%;
+}
+
+.cert-item:hover {
+    transform: translateY(-5px);
+}
+
+.cert-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.cert-item h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* الوجبات */
+.meals {
+    margin-bottom: 50px;
+}
+
+.meals h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.meal-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.meal-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(230, 126, 34, 0.2), rgba(44, 62, 80, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.meal-card:hover::before {
+    opacity: 1;
+}
+
+.meal-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.meal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meal-card:hover img {
+    transform: scale(1.1);
+}
+
+.meal-content {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.meal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientText 5s ease infinite;
+}
+
+.time {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.meal-content ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.meal-content ul li {
+    margin-bottom: 10px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.meal-content ul li:before {
+    content: "•";
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+.macros {
+    display: flex;
+    justify-content: space-between;
+    background: var(--light-bg);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* إجمالي الماكروز */
+.total-macros {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.total-macros h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientText 5s ease infinite;
+}
+
+.macro-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.macro-item {
+    padding: 15px;
+    background: var(--light-bg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.macro-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.macro-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.macro-label {
+    color: var(--primary-color);
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientText 5s ease infinite;
+}
+
+.macro-value {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* آراء المستخدمين */
+.testimonials {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--accent-color);
+}
+
+.testimonial-content h3 {
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.testimonial-content .stars {
+    color: #ffd700;
+    margin: 10px 0;
+}
+
+.testimonial-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.testimonial-content .date {
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* الفوتر */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.badge {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-links h3 {
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientText 5s ease infinite;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.social-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.social-icons a:hover::before {
+    left: 100%;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* تحسينات للموبايل */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .meal-container {
+        grid-template-columns: 1fr;
+    }
+
+    .macro-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* تأثيرات حركية */
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.meal-card, .cert-item, .badge {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* القائمة الثابتة */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.sticky-nav.visible {
+    transform: translateY(0);
+}
+
+.logo {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* شريط الإعلانات */
+.announcement-bar {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.announcement-content {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+}
+
+.announcement-content span {
+    padding: 0 30px;
+    font-weight: 500;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* زر العودة للأعلى */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
